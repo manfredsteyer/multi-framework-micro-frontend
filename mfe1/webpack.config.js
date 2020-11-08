@@ -27,7 +27,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
             },
             */
 
-            shared: ["@angular/common", "@angular/router"]
+            // shared: ["@angular/common"]
         })
       ],
     };
