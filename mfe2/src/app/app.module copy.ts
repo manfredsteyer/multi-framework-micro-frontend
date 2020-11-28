@@ -3,10 +3,10 @@ import { NgModule, Injector } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 
 import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
+import { endsWith } from './router.utils';
 import { AComponent } from './a/a.component';
 import { BComponent } from './b/b.component';
-import { Router, RouterModule } from '@angular/router';
-import { endsWith } from './router.utils';
 
 @NgModule({
   imports: [
@@ -24,13 +24,13 @@ import { endsWith } from './router.utils';
   providers: [],
   bootstrap: []
 })
-export class AppModule {
+export class AppModule { 
   constructor(private injector: Injector) {
   }
 
   ngDoBootstrap() {
     const ce = createCustomElement(AppComponent, {injector: this.injector});
-    customElements.define('mfe3-element', ce);
+    customElements.define('mfe2-element', ce);
   }
 
 }

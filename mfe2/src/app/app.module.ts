@@ -3,18 +3,28 @@ import { NgModule, Injector } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 
 import { AppComponent } from './app.component';
+import { RouterModule } from '@angular/router';
+import { endsWith } from './router.utils';
+import { AComponent } from './a/a.component';
+import { BComponent } from './b/b.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RouterModule.forRoot([
+      { matcher: endsWith('a'), component: AComponent},
+      { matcher: endsWith('b'), component: BComponent},
+    ])
+  ],
+  declarations: [
+    AComponent,
+    BComponent,
+    AppComponent
   ],
   providers: [],
   bootstrap: []
 })
-export class AppModule { 
+export class AppModule {
   constructor(private injector: Injector) {
   }
 
