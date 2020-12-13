@@ -17,7 +17,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
             library: { type: "var", name: "mfe2" },
             filename: "remoteEntry.js",
             exposes: {
-                './web-components': './src/main.ts',
+                './web-components': './src/bootstrap.ts',
             },        
            
             // For hosts (please adjust)

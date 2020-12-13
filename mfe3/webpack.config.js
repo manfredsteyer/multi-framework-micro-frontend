@@ -17,7 +17,7 @@ const ModuleFederationPlugin = require("webpack/lib/container/ModuleFederationPl
             library: { type: "var", name: "mfe3" },
             filename: "remoteEntry.js",
             exposes: {
-                './web-components': './src/main.ts',
+                './web-components': './src/bootstrap.ts',
             },        
 
             shared: ["@angular/core", "@angular/common", "@angular/router"]
