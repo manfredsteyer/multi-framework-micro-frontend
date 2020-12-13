@@ -1,6 +1,8 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+declare const require: any;
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -9,6 +11,8 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit {
 
   title = 'mfe3';
+
+  ngVersion = require('../../package.json').dependencies['@angular/core'];
 
   constructor(private router: Router) { }
 

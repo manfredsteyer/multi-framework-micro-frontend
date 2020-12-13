@@ -1,4 +1,4 @@
-import { UrlMatcher, UrlSegment } from '@angular/router';
+import { Route, UrlMatcher, UrlSegment, UrlSegmentGroup } from '@angular/router';
 
 export function endsWith(prefix: string): UrlMatcher {
     return (url: UrlSegment[]) => {
@@ -9,3 +9,13 @@ export function endsWith(prefix: string): UrlMatcher {
         return null;
     };
 }
+
+export function ignoreSegments(mfePrefix: string): UrlMatcher {
+    return (url: UrlSegment[], group: UrlSegmentGroup, route: Route) => {
+      const fullUrl = url.map(u => u.path).join('/');
+      if (fullUrl.startsWith(mfePrefix)) {
+        return ({ consumed: [ url[0] ] });
+      }
+      return null;
+    };
+  }

@@ -5,7 +5,7 @@ import { createCustomElement } from '@angular/elements';
 import { AppComponent } from './app.component';
 import { AComponent } from './a/a.component';
 import { BComponent } from './b/b.component';
-import { Router, RouterModule } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { endsWith } from './router.utils';
 
 @NgModule({

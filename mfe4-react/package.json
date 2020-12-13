@@ -1,0 +1,29 @@
+{
+  "name": "react-webpack-babel-tutorial",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack serve --mode=development --devtool=source-map",
+    "build": "webpack --mode=production"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-loader": "^8.2.2",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "webpack": "^5.10.1",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.10",
+    "@babel/preset-react": "^7.12.10",
+    "babel-runtime": "^6.26.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "react-web-component": "^2.0.1",
+    "react-web-component-style-loader": "^0.1.4-alpha"
+  }
+}
