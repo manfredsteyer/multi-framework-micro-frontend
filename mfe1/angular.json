@@ -30,6 +30,11 @@
             "extraWebpackConfig": "webpack.config.js"
           },
           "configurations": {
+            "development": {
+              "optimization": false,
+              "sourceMap": true,
+              "buildOptimizer": false
+            },
             "production": {
               "fileReplacements": [
                 {
@@ -65,14 +70,20 @@
           "options": {
             "browserTarget": "mfe1:build",
             "extraWebpackConfig": "webpack.config.js",
+            "publicHost": "http://localhost:4201",
             "port": 4201
           },
           "configurations": {
+            "development": {
+              "browserTarget": "mfe1:build:development",
+              "extraWebpackConfig": "webpack.prod.config.js"
+            },
             "production": {
               "browserTarget": "mfe1:build:production",
               "extraWebpackConfig": "webpack.prod.config.js"
             }
-          }
+          },
+          "defaultConfiguration": "development"
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
@@ -96,19 +107,6 @@
             ],
             "scripts": [],
             "extraWebpackConfig": "webpack.config.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
           }
         },
         "e2e": {

@@ -1,6 +1,27 @@
+import { loadRemoteModule } from '@angular-architects/module-federation';
+
 export const registry = {
-    mfe1: () => import('mfe1/web-components'),
-    mfe2: () => import('mfe2/web-components'),
-    mfe3: () => import('mfe3/web-components'),
-    mfe4: () => import('mfe4/web-components')
+    mfe1: () => loadRemoteModule({
+        type: 'module',
+        remoteEntry: 'http://localhost:4201/remoteEntry.js',
+        exposedModule: './web-components'
+    }),
+    mfe2: () => loadRemoteModule({
+        type: 'script',
+        remoteEntry: 'http://localhost:4202/remoteEntry.js',
+        remoteName: 'mfe2',
+        exposedModule: './web-components'
+    }),
+    mfe3: () => loadRemoteModule({
+        type: 'script',
+        remoteEntry: 'http://localhost:4203/remoteEntry.js',
+        remoteName: 'mfe3',
+        exposedModule: './web-components'
+    }),
+    mfe4: () => loadRemoteModule({
+        type: 'script',
+        remoteEntry: 'http://localhost:4204/remoteEntry.js',
+        remoteName: 'mfe4',
+        exposedModule: './web-components'
+    }),
 };
