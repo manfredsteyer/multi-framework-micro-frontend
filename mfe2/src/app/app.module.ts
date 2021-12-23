@@ -12,9 +12,9 @@ import { BComponent } from './b/b.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      { matcher: endsWith('a'), component: AComponent},
-      { matcher: endsWith('b'), component: BComponent},
-    ])
+    { matcher: endsWith('a'), component: AComponent },
+    { matcher: endsWith('b'), component: BComponent },
+], { relativeLinkResolution: 'legacy' })
   ],
   declarations: [
     AComponent,
