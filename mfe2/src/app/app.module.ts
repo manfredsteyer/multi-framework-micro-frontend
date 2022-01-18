@@ -4,7 +4,6 @@ import { createCustomElement } from '@angular/elements';
 
 import { AppComponent } from './app.component';
 import { RouterModule } from '@angular/router';
-import { endsWith } from './router.utils';
 import { AComponent } from './a/a.component';
 import { BComponent } from './b/b.component';
 
@@ -12,8 +11,14 @@ import { BComponent } from './b/b.component';
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-    { matcher: endsWith('a'), component: AComponent },
-    { matcher: endsWith('b'), component: BComponent },
+      {
+        path: 'mfe2',
+        children: [
+          { path: '', redirectTo: 'a', pathMatch: 'full' },
+          { path: 'a', component: AComponent },
+          { path: 'b/:id', component: BComponent },
+        ],
+      },
 ], { relativeLinkResolution: 'legacy' })
   ],
   declarations: [
