@@ -4,7 +4,6 @@ import { createCustomElement } from '@angular/elements';
 
 import { AppComponent } from './app.component';
 import { AComponent } from './a/a.component';
-import { BComponent } from './b/b.component';
 import { RouterModule } from '@angular/router';
 import { endsWith } from './router.utils';
 
@@ -13,12 +12,11 @@ import { endsWith } from './router.utils';
     BrowserModule,
     RouterModule.forRoot([
     { matcher: endsWith('a'), component: AComponent },
-    { matcher: endsWith('b'), component: BComponent },
+    { matcher: endsWith('b'), loadChildren: () => import('./b/b.module').then(m => m.BModule)}
 ], { relativeLinkResolution: 'legacy' })
   ],
   declarations: [
     AComponent,
-    BComponent,
     AppComponent
   ],
   providers: [],
